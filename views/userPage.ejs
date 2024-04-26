@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodingDung | Profile Template</title>
+    <link rel="stylesheet" href="./assets/css/userPage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: #1c243c;"> 
+    <div class="container light-style flex-grow-1 container-p-y">
+        <h4 class="font-weight-bold py-3 mb-4" style="color: #d6c9c4;">
+            Account settings
+        </h4>
+
+        <h6>
+            <p style="color: red;">
+
+                <% if (locals.err  || locals.deleErr) { %>
+                    Wrong Password
+                   <% } %>
+            </p>
+            <p style="color: green;">
+
+                <% if (locals.succPass) { %>
+                    Password Changed
+                   <% } %>
+            </p>
+        </h6>
+        <div class="card overflow-hidden">
+            <div class="row no-gutters row-bordered row-border-light">
+                <div class="col-md-3 pt-0">
+                    <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="#account-general">General</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-change-password">Change password</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#delete_Account">Delete Account</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="account-general">
+                            <div class="card-body media align-items-center">
+                                <img src="assets/img/userAvtar.png" alt class="d-block ui-w-80">
+                            </div>
+                            <hr class="border-light m-0">
+                            <div class="card-body">
+                                <table>
+                                    <tr>
+                                        <td>Username: </td>
+                                        <td>
+                                            <%= locals.name %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email: </td>
+                                        <td>
+                                            <%= locals.email %>
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-change-password">
+                            <div class="card-body pb-2">
+                                <form action="/changePass" method="post">
+                                    <div class="form-group">
+                                        <label class="form-label">Current password</label>
+                                        <input type="password" class="form-control" name="currentPass" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">New password</label>
+                                        <input id="newPass" type="password" class="form-control" name="newPass" required>
+                                    </div>
+                                    <div class="form-group">
+                                       
+                                        <label class="form-label">Repeat new password   <span  style="color: red;" id="showerr"></span></label>
+                                        <input  id="cnfPass" type="text" required class="form-control" name="cnfpass">
+                                    </div>
+                                    <div class="text-right mt-3">
+                                        <button type="submit" class="btn btn-primary" id="subButton" disabled>Reset Password</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="delete_Account">
+                            <div class="card-body pb-2">
+
+                                <form action="/deleteAccount" method="post">
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <input type="password" required class="form-control" name="pass">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"> Re Enter password</label>
+                                        <input type="password" required class="form-control" name="cnfPass">
+                                    </div>
+                                    <div class="text-right mt-3">
+                                        <input type="checkbox" id="deleteCheck" name="check">
+                                        <label class="form-label">yes i want to delete my account</label> <br>
+                                        <button id="deletebtn" type="submit" class="btn btn-danger" disabled>Delete
+                                            Account</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <button id="backBtn" type="submit" class="btn " style="background-color: #d6c9c4; color: #1c243c;" >Back
+               </button>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+
+        document.querySelector("#deleteCheck").addEventListener("change", function () {
+            let button = document.querySelector("#deletebtn"); 
+            button.disabled = !this.checked
+        })
+
+
+        let err = document.querySelector("#showerr");
+        document.querySelector("#cnfPass").addEventListener("input", function () {
+
+            let pass = document.querySelector("#newPass").value;
+
+            err.innerHTML = "";
+            let val = this.value;
+            if (val == "" || pass == "") {
+                return;
+            }
+            if (val !== pass) {
+                err.innerHTML = "must be same";
+            }else {
+                document.querySelector("#subButton").disabled = false;
+            }
+        })
+
+        document.querySelector("#backBtn").addEventListener("click",()=>{
+            window.location.href = '/home';
+        })
+
+
+    </script>
+</body>
+
+</html>

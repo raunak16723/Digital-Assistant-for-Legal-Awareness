@@ -1,0 +1,212 @@
+========== HEADER ==========
+.nav__logo
+Sushi
+
+.nav__link
+Home
+
+About Us
+
+Popular
+
+Recently
+
+========== HOME ==========
+.home__title
+Enjoy Delicious
+Sushi Food
+
+.home__description
+Enjoy a good dinner with the best dishes in 
+the restaurant and improve your day.
+
+.button
+Order Now
+
+
+========== ABOUT ==========
+.section__subtitle
+About Us
+
+.section__title
+We Provide 
+Healthy Food
+
+.about__description
+Food comes to us from our relatives, whether they 
+have wings or roots. This is how we consider food, 
+it also has a culture. It has a history that passes 
+from generation to generation.
+
+
+========== POPULAR  ==========
+.section__subtitle
+The Best Food
+
+.section__title
+Popular Dishes
+
+.popular__name .popular__description .popular__price
+Onigiri
+Japanese Dish
+$10.99
+
+Spring Rolls
+Japanese Dish
+$15.99
+
+Sushi Rolls
+Japanese Dish
+$19.99
+
+
+========== RECENTLY ==========
+.section__subtitle
+Recently Added
+
+.section__title
+Sushi Samurai <br>
+Salmón Cheese
+
+.recently__description
+Take a look at what's new. And do not deprive 
+yourself of a good meal, enjoy and be happy.
+
+.button
+Order Now
+
+
+========== NEWSLETTER ==========
+.section__subtitle
+Newsletter
+
+.section__title
+Subscribe For <br>
+Offer Updates
+
+.newsletter__input
+Enter email
+
+.newsletter__button
+Subscribe
+
+
+========== FOOTER ==========
+.footer__logo
+Sushi
+
+.footer__description
+Food for the body is not <br>
+enough. There must be food <br>
+for the soul.
+
+.footer__title | .footer__link
+Main Menu
+About
+Menus
+Offer
+Events
+
+Information
+Contact
+Order & Returns
+Videos
+Reservation
+
+Address
+Av. Hacienda 1234 <br> Jalandhar - Delhi, Grand Trunk Rd, Phagwara, <br>
+                       Punjab 144001
+Lima 4321, Perú 
+9AM - 11PM
+
+Social Media
+
+.footer__social-link
+https://www.facebook.com/
+https://www.instagram.com/
+https://twitter.com/
+
+.footer__copy
+&#169; Copyright Bedimcode. All rights reserved
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <section class="recently section" id="recently">
+                <div class="recently__container container grid">
+                    <div class="recent__data">
+                        <span class="section__subtitle">Recently Added</span>
+                        <h2 class="section__title">
+                            Sushi Samurai <br>
+                            Salmón Cheese
+                        </h2>
+
+                        <p class="recently__description">
+                            Take a look at what's new. And do not deprive 
+                            yourself of a good meal, enjoy and be happy.
+                        </p>
+
+                        <a href="#" class="button">
+                            Order Now <i class="ri-arrow-right-line"></i>
+                        </a>
+                    
+                        <img src="assets/img/spinach-leaf.png" alt="recently image" class="recently__data-img">
+                    </div>
+                    
+                    <img src="assets/img/recently-salmon-sushi.png" alt="recetly image" class="recently__img">
+                </div>
+
+                <!--<img src="assets/img/leaf-branch-2.png" alt="recently imgae" class="recently__leaf-1"> -->
+               <!-- <img src="assets/img/leaf-branch-3.png" alt="recently imgae" class="recently__leaf-2"> -->
+            </section>
+
+
+
+
+
+
+.recently{
+  position: relative;
+}
+
+
+.recently__container{
+  row-gap: 4rem;
+}
+
+.recently__data{
+  position: relative;
+  text-align: center;
+}
+
+.recently__description{
+  margin-bottom: 2rem;
+}
+
+.recently__data-img{
+  width: 25px;
+  position: absolute;
+  top: 3.5rem;
+  right: 1.5rem;
+  transform: rotate(30deg);
+}
+
